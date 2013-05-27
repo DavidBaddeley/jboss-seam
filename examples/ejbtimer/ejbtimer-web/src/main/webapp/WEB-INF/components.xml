@@ -3,7 +3,6 @@
             xmlns:pay="http://jboss.org/schema/seam/examples/ejbtimer"
             xmlns:core="http://jboss.org/schema/seam/core"
             xmlns:framework="http://jboss.org/schema/seam/framework"
-            xmlns:transaction="http://jboss.org/schema/seam/transaction"
             xmlns:persistence="http://jboss.org/schema/seam/persistence">
 
     <pay:payment-home name="paymentHome" 
@@ -35,8 +34,6 @@
 
     <core:init debug="true" jndi-pattern="${jndiPattern}" />
     
-    <transaction:ejb-transaction/>
-    
-       <component class="org.jboss.seam.transaction.EjbSynchronizations" jndi-name="java:app/jboss-seam/EjbSynchronizations"/>
+    <component class="org.jboss.seam.transaction.EjbSynchronizations" jndi-name="java:app/jboss-seam/EjbSynchronizations"/>
 
 </components>
