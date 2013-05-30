@@ -4,21 +4,15 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import javax.ejb.Timer;
 import javax.ejb.TimerHandle;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-
-import javax.validation.constraints.Size;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Digits;
-
-import org.jboss.seam.ScopeType;
-import org.jboss.seam.annotations.Scope;
-import org.jboss.seam.async.QuartzTriggerHandle;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Payment
@@ -89,7 +83,7 @@ public class Payment
         this.paymentDate = paymentDate;
     }  
 
-    public Date getPaymentEndDate() {
+   public Date getPaymentEndDate() {
         return paymentEndDate;
     }
     public void setPaymentEndDate(Date paymentEndDate) {

@@ -20,71 +20,64 @@ import org.jboss.seam.log.Log;
 @Name("processor")
 @AutoCreate
 @Stateless
-public class PaymentProcessor{
-    
-	@In
-	EntityManager entityManager;
-	
-    @Resource
-    TimerService timerservice;
+public class PaymentProcessor
+{
 
-    @Logger Log log;
-    
-    public Timer schedulePayment(Date when, Long interval, Date stoptime, Payment payment) 
-    { 
-    	Timer timer = null;
-    	
-    	if(payment.getPaymentFrequency().equals(Payment.Frequency.ONCE)) {
-    		
-    		timer = timerservice.createSingleActionTimer(when, new TimerConfig(payment,true));
+   @In
+   EntityManager entityManager;
 
-    	}else {
-    	
-    		timer =  timerservice.createIntervalTimer(when,interval, new TimerConfig(payment,true));
-    	
-    	}
-    	return timer;
-    }
-    
+   @Resource
+   TimerService timerservice;
 
-    /* @Asynchronous
-    @Transactional
-    public QuartzTriggerHandle schedulePayment(@Expiration Date when, 
-                                 @IntervalCron String cron, 
-                                 @FinalExpiration Date stoptime, 
-                                 Payment payment) 
-    { 
-        payment = entityManager.merge(payment);
-        
-        log.info("[#0] Processing cron payment #1", System.currentTimeMillis(), payment.getId());
+   @Logger
+   Log log;
 
-        if (payment.getActive()) {
-            BigDecimal balance = payment.getAccount().adjustBalance(payment.getAmount().negate());
-            log.info(":: balance is now #0", balance);
-            payment.setLastPaid(new Date());
+   public Timer schedulePayment(Date when, Long interval, Payment payment)
+   {
+      Timer timer = null;
 
-        }
+      if (payment.getPaymentFrequency().equals(Payment.Frequency.ONCE))
+      {
 
-        return null;
-    } */
-    
-    @Timeout
-    public void timeout(Timer timer){
-    	
-	   Payment payment = (Payment) timer.getInfo();
-	   payment = entityManager.merge(payment);
-	   
-   	   log.info("[#0] Processing payment #1", System.currentTimeMillis(), payment.getId());
+         timer = timerservice.createSingleActionTimer(when, new TimerConfig(payment, true));
 
-        if (payment.getActive()) {
-            BigDecimal balance = payment.getAccount().adjustBalance(payment.getAmount().negate());
-            log.info(":: balance is now #0", balance);
-            payment.setLastPaid(new Date());
+      }
+      else
+      {
 
-            if (payment.getPaymentFrequency().equals(Payment.Frequency.ONCE)) {
-            	payment.setActive(false);
-            }
-        }
-    }
-   
+         timer = timerservice.createIntervalTimer(when, interval, new TimerConfig(payment, true));
+
+      }
+      return timer;
+   }
+
+   @Timeout
+   public void timeout(Timer timer)
+   {
+
+      Payment payment = (Payment) timer.getInfo();
+      payment = entityManager.merge(payment);
+
+      log.info("[#0] Processing payment #1", System.currentTimeMillis(), payment.getId());
+
+      if (payment.getPaymentEndDate() != null && payment.getPaymentEndDate().getTime() < System.currentTimeMillis())
+      {
+         payment.setActive(false);
+         payment.setTimer(null);
+         timer.cancel();
+      }
+
+      if (payment.getActive())
+      {
+         BigDecimal balance = payment.getAccount().adjustBalance(payment.getAmount().negate());
+         log.info(":: balance is now #0", balance);
+         payment.setLastPaid(new Date());
+
+         if (payment.getPaymentFrequency().equals(Payment.Frequency.ONCE))
+         {
+            payment.setActive(false);
+         }
+      }
+   }
+
 }

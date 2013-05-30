@@ -24,8 +24,6 @@ public class Account
 
     @NotNull
     String accountNumber;
-    //String login;
-    //String password;
        
     @OneToMany(mappedBy="account", cascade=CascadeType.REMOVE)
     //@OrderBy("paymentDate")

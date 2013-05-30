@@ -1,7 +1,7 @@
-Seam Quartz Example
+Seam EJB Timer Example
 ===================
 
-This example demonstrates the Seam Quartz Timer functionality.
+This example demonstrates the EJB Timer functionality in Seam.
 
 To deploy the example to JBoss AS, follow these steps:
 
@@ -11,8 +11,8 @@ To deploy the example to JBoss AS, follow these steps:
 
 * Set JBOSS_HOME environment property.
 
-* In the quartz-ear directory run:
+* In the ejbtimer-ear directory run:
 
     mvn jboss-as:deploy
 
-* Open this URL in a web browser: http://localhost:8080/seam-quartz
+* Open this URL in a web browser: http://localhost:8080/seam-ejbtimer

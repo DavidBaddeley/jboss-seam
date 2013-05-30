@@ -12,68 +12,52 @@ import org.jboss.seam.framework.EntityHome;
 import org.jboss.seam.log.Log;
 
 @Name("paymentHome")
-public class PaymentHome
-    extends EntityHome<Payment>
+public class PaymentHome extends EntityHome<Payment>
 {
-    @RequestParameter Long paymentId;
-    @In PaymentProcessor processor;
-    
-    @Logger Log log;
+   @RequestParameter
+   Long paymentId;
+   @In
+   PaymentProcessor processor;
 
-    
-    public String saveAndSchedule()
-    {
-        String result = persist();
-        
-        Payment payment = getInstance();
-        
-        log.info("scheduling instance #0", payment);
-        Timer timer = processor.schedulePayment(payment.getPaymentDate(), 
-                                                payment.getPaymentFrequency().getInterval(), 
-                                                payment.getPaymentEndDate(),payment);
-        
-        payment.setTimer( timer.getHandle() );
+   @Logger
+   Log log;
 
-        return result;
-    }
+   public String saveAndSchedule()
+   {
+      String result = persist();
 
-    /* public String saveAndScheduleCron()
-    {
-        String result = persist();
-        
-        Payment payment = getInstance();
-        log.info("scheduling instance #0", payment);
+      Payment payment = getInstance();
 
-        QuartzTriggerHandle handle = processor.schedulePayment(payment.getPaymentDate(), 
-                                                payment.getPaymentCron(), 
-                                                payment.getPaymentEndDate(), 
-                                                payment);
-        
-        payment.setQuartzTriggerHandle( handle );
+      log.info("scheduling instance #0", payment);
+      Timer timer = processor.schedulePayment(payment.getPaymentDate(), payment.getPaymentFrequency().getInterval(), payment);
 
-        return result;
-    }*/
+      payment.setTimer(timer.getHandle());
 
-    @Override
-    public Object getId() {
-        return paymentId;
-    }
+      return result;
+   }
 
-    @Transactional
-    public void cancel() {
-        Payment payment = getInstance();
-        
-        try
-        {
-        	Timer timer = payment.getTimerHandle().getTimer();
-            payment.setTimer(null);
-            payment.setActive(false);
-            timer.cancel();
-        }
-        catch (Exception nsole)
-        {
-            FacesMessages.instance().add("Payment already processed");
-        }
-    }
-    
+   @Override
+   public Object getId()
+   {
+      return paymentId;
+   }
+
+   @Transactional
+   public void cancel()
+   {
+      Payment payment = getInstance();
+
+      try
+      {
+         Timer timer = payment.getTimerHandle().getTimer();
+         payment.setTimer(null);
+         payment.setActive(false);
+         timer.cancel();
+      }
+      catch (Exception nsole)
+      {
+         FacesMessages.instance().add("Payment already processed");
+      }
+   }
+
 }
