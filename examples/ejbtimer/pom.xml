@@ -1,46 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>org.jboss.seam.examples</groupId>
-    <artifactId>ejbtimer</artifactId>
-    <parent>
-        <groupId>org.jboss.seam</groupId>
-        <artifactId>examples</artifactId>
-        <version>2.3.1-SNAPSHOT</version>
-    </parent>
-    <packaging>pom</packaging>
-    <name>Ejbtimer Example (EE6)</name>
-    
-    <properties>
-        <example.name>ejbtimer</example.name>
-    </properties>
-    
-    <modules>
-        <module>ejbtimer-ear</module>
-        <module>ejbtimer-ejb</module>
-        <module>ejbtimer-web</module>
-        <!--module>ejbtimer-tests</module-->
-    </modules>
-    
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.jboss.seam.examples.ejbtimer</groupId>
-                <artifactId>ejbtimer-ejb</artifactId>
-                <version>${project.version}</version>
-                <type>ejb</type>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.jboss.seam.examples</groupId>
+	<artifactId>ejbtimer</artifactId>
+	<version>2.3.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Ejbtimer Example (EE6)</name>
+
+	<properties>
+		<example.name>ejbtimer</example.name>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.target>1.6</maven.compiler.target>
+		<maven.compiler.source>1.6</maven.compiler.source>
+
+		<version.compiler.plugin>2.3.1</version.compiler.plugin>
+		<version.dependency.plugin>2.5.1</version.dependency.plugin>
+		<version.ear.plugin>2.6</version.ear.plugin>
+		<version.shrinkwrap.resolver>2.0.0-beta-4-SNAPSHOT</version.shrinkwrap.resolver>
+		<version.war.plugin>2.1.1</version.war.plugin>
+	</properties>
+
+	<modules>
+		<module>ejbtimer-ear</module>
+		<module>ejbtimer-ejb</module>
+		<module>ejbtimer-web</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+
+			<dependency>
+				<groupId>org.jboss.seam.examples.ejbtimer</groupId>
+				<artifactId>ejbtimer-ejb</artifactId>
+				<version>${project.version}</version>
+				<type>ejb</type>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jboss.seam.examples.ejbtimer</groupId>
+				<artifactId>ejbtimer-web</artifactId>
+				<version>${project.version}</version>
+				<type>war</type>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jboss.seam.examples.ejbtimer</groupId>
+				<artifactId>ejbtimer-ear</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<!-- BOMs declaration -->
+			<dependency>
+                <groupId>org.jboss.shrinkwrap.resolver</groupId>
+                <artifactId>shrinkwrap-resolver-bom</artifactId>
+                <version>${version.shrinkwrap.resolver}</version>
+                <scope>import</scope>
+                <type>pom</type>
             </dependency>
-            <dependency>
-                <groupId>org.jboss.seam.examples.ejbtimer</groupId>
-                <artifactId>ejbtimer-web</artifactId>
-                <version>${project.version}</version>
-                <type>war</type>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.seam.examples.ejbtimer</groupId>
-                <artifactId>ejbtimer-ear</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+
+			<dependency>
+				<groupId>org.jboss.seam</groupId>
+				<artifactId>bom</artifactId>
+				<version>${project.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			
+		</dependencies>
+	</dependencyManagement>
+	
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- Manage plugin versions for build stability -->
+<!-- 				<plugin> -->
+<!-- 					<artifactId>maven-surefire-plugin</artifactId> -->
+<!-- 					<version>${version.surefire.plugin}</version> -->
+<!-- 					<configuration> -->
+<!-- 						<systemPropertyVariables> -->
+<!-- 							<org.apache.maven.user-settings>${maven.user.settings}</org.apache.maven.user-settings> -->
+<!-- 							<maven.profiles>${maven.profiles}</maven.profiles> -->
+<!-- 						</systemPropertyVariables> -->
+<!-- 					</configuration> -->
+<!-- 				</plugin> -->
+				<plugin>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>${version.dependency.plugin}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+                	<artifactId>maven-war-plugin</artifactId>
+                	<version>${version.war.plugin}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+                	<artifactId>maven-ear-plugin</artifactId>
+                	<version>${version.ear.plugin}</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${version.compiler.plugin}</version>
+					<configuration>
+						<source>${maven.compiler.source}</source>
+						<target>${maven.compiler.target}</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 </project>
