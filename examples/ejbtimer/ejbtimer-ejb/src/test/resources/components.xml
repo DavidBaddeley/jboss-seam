@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components xmlns="http://jboss.org/schema/seam/components"
+            xmlns:pay="http://jboss.org/schema/seam/examples/ejbtimer"
+            xmlns:core="http://jboss.org/schema/seam/core"
+            xmlns:framework="http://jboss.org/schema/seam/framework"
+            xmlns:persistence="http://jboss.org/schema/seam/persistence">
+            
+    <persistence:managed-persistence-context name="entityManager"
+                                      auto-create="true"
+                                      persistence-unit-jndi-name="java:/seampayEntityManagerFactory"/>
+
+    <core:init debug="true" jndi-pattern="${jndiPattern}" />
+    
+    <component class="org.jboss.seam.transaction.EjbSynchronizations" jndi-name="java:app/jboss-seam/EjbSynchronizations"/>
+
+</components>

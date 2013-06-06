@@ -14,11 +14,26 @@
 		<maven.compiler.target>1.6</maven.compiler.target>
 		<maven.compiler.source>1.6</maven.compiler.source>
 
-		<version.compiler.plugin>2.3.1</version.compiler.plugin>
+		<!-- To use jacoco, set jacoco.agent system property to something like 
+			-javaagent:/path/to/jacocoagent.jar=append=true,destfile=/path/to/output/jacoco.exec -->
+		<jacoco.agent />
+
+		<!-- To use custom Maven settings and profiles, uncomment and customize 
+			the following properties. This is necessary for the ShrinkWrap resolver to 
+			function properly. -->
+		<!--<maven.user.settings>/path/to/custom/settings.xml</maven.user.settings> -->
+		<!--<maven.profiles>custom,profile</maven.profiles> -->
+
+		<version.commons.logging>1.1.1</version.commons.logging>
+        <version.shrinkwrap.resolver>2.0.0-beta-5</version.shrinkwrap.resolver>
+
+		<!-- Plugin versions -->
 		<version.dependency.plugin>2.5.1</version.dependency.plugin>
+		<version.surefire.plugin>2.10</version.surefire.plugin>
+		<version.compiler.plugin>2.3.1</version.compiler.plugin>
 		<version.ear.plugin>2.6</version.ear.plugin>
-		<version.shrinkwrap.resolver>2.0.0-beta-4-SNAPSHOT</version.shrinkwrap.resolver>
 		<version.war.plugin>2.1.1</version.war.plugin>
+		<version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
 	</properties>
 
 	<modules>
@@ -74,16 +89,16 @@
 		<pluginManagement>
 			<plugins>
 				<!-- Manage plugin versions for build stability -->
-<!-- 				<plugin> -->
-<!-- 					<artifactId>maven-surefire-plugin</artifactId> -->
-<!-- 					<version>${version.surefire.plugin}</version> -->
-<!-- 					<configuration> -->
-<!-- 						<systemPropertyVariables> -->
-<!-- 							<org.apache.maven.user-settings>${maven.user.settings}</org.apache.maven.user-settings> -->
-<!-- 							<maven.profiles>${maven.profiles}</maven.profiles> -->
-<!-- 						</systemPropertyVariables> -->
-<!-- 					</configuration> -->
-<!-- 				</plugin> -->
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${version.surefire.plugin}</version>
+					<configuration>
+						<systemPropertyVariables>
+							<org.apache.maven.user-settings>${maven.user.settings}</org.apache.maven.user-settings>
+							<maven.profiles>${maven.profiles}</maven.profiles>
+						</systemPropertyVariables>
+					</configuration>
+				</plugin>
 				<plugin>
 					<artifactId>maven-dependency-plugin</artifactId>
 					<version>${version.dependency.plugin}</version>
