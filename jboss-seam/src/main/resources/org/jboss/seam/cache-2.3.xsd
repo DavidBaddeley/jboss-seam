@@ -57,9 +57,23 @@
          <xs:attributeGroup ref="cache:attlist.cacheProvider" />
       </xs:complexType>
    </xs:element>
+
+<xs:element name="infinispan-jboss-provider">
+	<xs:annotation>
+		<xs:documentation>The Infinispan 5.x Cache provider from JBoss AS
+		</xs:documentation>
+	</xs:annotation>
+	<xs:complexType mixed="true">
+		<xs:attributeGroup ref="components:attlist.component" />
+		<xs:attributeGroup ref="cache:attlist.cacheProvider" />
+	</xs:complexType>
+</xs:element>
+   
    <xs:attributeGroup name="attlist.cacheProvider">
       <xs:attribute name="default-region" type="components:string" />
       <xs:attribute name="configuration" type="components:string" />
+      <xs:attribute name="jndi" type="components:string" />
    </xs:attributeGroup>
-
+   
+   
 </xs:schema>

@@ -23,8 +23,17 @@ public abstract class CacheProvider<T>
    public static final String DEFAULT_REGION = "org.jboss.seam.cache.DefaultRegion";
    private String configuration;
    private String defaultRegion = DEFAULT_REGION;
+   private String jndi = "java:jboss/infinispan/container/cluster";
 
-   /**
+	public String getJndi() {
+		return jndi;
+	}
+
+	public void setJndi(String jndi) {
+		this.jndi = jndi;
+	}
+
+/**
     * @return - the cache the cache provider delegates to
     */
    public abstract T getDelegate();

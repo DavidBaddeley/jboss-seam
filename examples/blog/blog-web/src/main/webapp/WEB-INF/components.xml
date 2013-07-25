@@ -4,15 +4,12 @@
             xmlns:persistence="http://jboss.org/schema/seam/persistence"
             xmlns:security="http://jboss.org/schema/seam/security"
             xmlns:theme="http://jboss.org/schema/seam/theme"
-            xmlns:cache="http://jboss.org/schema/seam/cache"
             xmlns:web="http://jboss.org/schema/seam/web"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:schemaLocation=
-                    "http://jboss.org/schema/seam/core http://jboss.org/schema/seam/core-2.3.xsd
+            xsi:schemaLocation="http://jboss.org/schema/seam/core http://jboss.org/schema/seam/core-2.3.xsd
                  http://jboss.org/schema/seam/persistence http://jboss.org/schema/seam/persistence-2.3.xsd
                  http://jboss.org/schema/seam/security http://jboss.org/schema/seam/security-2.3.xsd
                  http://jboss.org/schema/seam/theme http://jboss.org/schema/seam/theme-2.3.xsd
-                 http://jboss.org/schema/seam/cache http://jboss.org/schema/seam/cache-2.3.xsd
                  http://jboss.org/schema/seam/web http://jboss.org/schema/seam/web-2.3.xsd
                  http://jboss.org/schema/seam/components http://jboss.org/schema/seam/components-2.3.xsd">
 
@@ -28,15 +25,13 @@
          <value>accessible</value>
          <value>printable</value>
       </theme:available-themes>
-   </theme:theme-selector>
-
-   <cache:infinispan-cache-provider/>
+   </theme:theme-selector>   
 
    <persistence:managed-persistence-context name="entityManager"
                                             auto-create="true"
                                             persistence-unit-jndi-name="java:/blogEntityManagerFactory"/>
 
-    <component class="org.jboss.seam.transaction.EjbSynchronizations" jndi-name="java:app/jboss-seam/EjbSynchronizations"/>
-    <component class="org.jboss.seam.async.TimerServiceDispatcher" jndi-name="java:app/jboss-seam/TimerServiceDispatcher"/>
-    
+    <component name="org.jboss.seam.cache.cacheProvider" class="InfinispanJNDICacheProvider">
+        <property name="jndi">java:jboss/infinispan/container/hibernate</property>
+    </component>
 </components>
