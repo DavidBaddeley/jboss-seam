@@ -65,7 +65,7 @@ public class BoundComponentConversationTest
    }
    
    @Test
-   @Ignore //This test is not 100% correct, because of conversation init/restore is done later when this expect
+   //@Ignore //This test is not 100% correct, because of conversation init/restore is done later when this expect
    public void testConversationRestoration() throws Exception
    {
       Pattern conversationIdPattern = Pattern.compile("Conversation id: (\\d+)\\.");

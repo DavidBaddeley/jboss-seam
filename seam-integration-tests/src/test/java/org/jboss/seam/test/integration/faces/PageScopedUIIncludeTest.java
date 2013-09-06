@@ -86,7 +86,7 @@ public class PageScopedUIIncludeTest
       assertTrue(page.getBody().getTextContent().contains("Hello, xyzzy"));
    }
    
-   @Ignore // JBSEAM-5002
+   //@Ignore // JBSEAM-5002
    @Test
    public void testComponent2() throws Exception
    {
