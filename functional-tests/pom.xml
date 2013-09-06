@@ -11,32 +11,26 @@
     <name>Seam Functional Tests Common Classes</name>
 
     <properties>
-        <version.arquillian>1.1.0.Final</version.arquillian>
-        <version.graphene>2.0.0.Alpha4</version.graphene>
-        <version.shrinkwrap.resolver>2.0.0</version.shrinkwrap.resolver>
-        <version.junit>4.10</version.junit>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>${version.junit}</version>
         </dependency>
-
+        
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-container</artifactId>
-            <version>${version.arquillian}</version>
             <exclusions>
-            	<exclusion>
-            		<artifactId>shrinkwrap-api</artifactId>
-            		<groupId>org.jboss.shrinkwrap</groupId>
-            	</exclusion>
-            	<exclusion>
-            		<artifactId>shrinkwrap-spi</artifactId>
-            		<groupId>org.jboss.shrinkwrap</groupId>
-            	</exclusion>
+                <exclusion>
+                    <artifactId>shrinkwrap-api</artifactId>
+                    <groupId>org.jboss.shrinkwrap</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>shrinkwrap-spi</artifactId>
+                    <groupId>org.jboss.shrinkwrap</groupId>
+                </exclusion>
             </exclusions>
         </dependency>
 
@@ -50,7 +44,6 @@
         <dependency>
             <groupId>org.jboss.shrinkwrap.resolver</groupId>
             <artifactId>shrinkwrap-resolver-depchain</artifactId>
-            <version>${version.shrinkwrap.resolver}</version>
             <type>pom</type>
         </dependency>
 

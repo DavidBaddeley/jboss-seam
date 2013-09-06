@@ -46,15 +46,17 @@
 
 		<!-- Version string properties -->
         <version.seam>2.3.2-SNAPSHOT</version.seam>
-		<version.arquillian_core>1.0.1.Final</version.arquillian_core>
+		<version.arquillian.core>1.1.1.Final</version.arquillian.core>
+		<version.shrinkwrap.resolver>2.0.0</version.shrinkwrap.resolver>
+		<version.graphene>2.0.0.Alpha4</version.graphene>
 		<version.wicket>1.4.14</version.wicket>
 		<version.testng>5.14.10</version.testng>
 		<version.resteasy>2.0.1.GA</version.resteasy>
 		<version.jacoco>0.5.8.201207111220</version.jacoco>
-		<version.jbossas7>7.1.1.Final</version.jbossas7>
+		<version.jbossas7>7.2.0.Final</version.jbossas7>
 		<version.emma>2.0.5312</version.emma>
 		<version.jsf2>2.1.7</version.jsf2>
-		<version.junit>4.8.2</version.junit>
+		<version.junit>4.10</version.junit>
 		<version.richfaces.cdk>4.2.2.Final</version.richfaces.cdk>
 
 		<!-- ***************** -->
