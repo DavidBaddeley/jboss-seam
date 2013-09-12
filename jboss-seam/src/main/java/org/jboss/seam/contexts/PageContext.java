@@ -44,7 +44,7 @@ public class PageContext implements Context
    
    public PageContext()
    {
-      previousPageMap = getOrCreateViewMap();
+      previousPageMap = getOrCreateAttributesMap();
       nextPageMap = new HashMap<String, Object>();
    }
 
@@ -138,12 +138,12 @@ public class PageContext implements Context
     */
    public void flush()
    {
-      Map viewMap = getOrCreateViewMap();
-      viewMap.putAll(nextPageMap);
-      nextPageMap = viewMap;
+      Map attributeswMap = getOrCreateAttributesMap();
+      attributeswMap.putAll(nextPageMap);
+      nextPageMap = attributeswMap;
    }
 
-   private static Map getOrCreateViewMap()
+   private static Map getOrCreateAttributesMap()
    {
       FacesContext facesContext = FacesContext.getCurrentInstance();
       if (facesContext==null)
