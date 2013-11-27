@@ -18,7 +18,10 @@ import javax.validation.constraints.Size;
 public class Payment
     implements Serializable
 {
-    @Id @GeneratedValue 
+
+	private static final long serialVersionUID = -973922090133515989L;
+
+	@Id @GeneratedValue 
     private Long id;
 
     @NotNull
@@ -73,7 +76,7 @@ public class Payment
     
     public void setAccount(Account account) {
         this.account = account;
-        account.getPayments().add(this);
+        account.addPayment(this);
     }
 
     public Date getPaymentDate() {

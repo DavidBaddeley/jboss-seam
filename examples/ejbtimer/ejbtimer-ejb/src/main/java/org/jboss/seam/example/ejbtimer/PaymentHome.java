@@ -14,6 +14,8 @@ import org.jboss.seam.log.Log;
 @Name("paymentHome")
 public class PaymentHome extends EntityHome<Payment>
 {
+   private static final long serialVersionUID = 1297652139943900086L;
+
    @RequestParameter
    Long paymentId;
    @In

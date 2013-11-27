@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jboss.seam.examples</groupId>
 	<artifactId>ejbtimer</artifactId>
-	<version>2.3.1-SNAPSHOT</version>
+	<version>2.3.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Ejbtimer Example (EE6)</name>
 
@@ -25,7 +25,6 @@
 		<!--<maven.profiles>custom,profile</maven.profiles> -->
 
 		<version.commons.logging>1.1.1</version.commons.logging>
-        <version.shrinkwrap.resolver>2.0.0-beta-5</version.shrinkwrap.resolver>
 
 		<!-- Plugin versions -->
 		<version.dependency.plugin>2.5.1</version.dependency.plugin>
@@ -64,15 +63,6 @@
 				<artifactId>ejbtimer-ear</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-
-			<!-- BOMs declaration -->
-			<dependency>
-                <groupId>org.jboss.shrinkwrap.resolver</groupId>
-                <artifactId>shrinkwrap-resolver-bom</artifactId>
-                <version>${version.shrinkwrap.resolver}</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
 
 			<dependency>
 				<groupId>org.jboss.seam</groupId>

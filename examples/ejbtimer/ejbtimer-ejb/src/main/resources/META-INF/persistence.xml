@@ -8,9 +8,9 @@
         <jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
-            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.show_sql" value="true"/>
             <property name="jboss.entity.manager.factory.jndi.name" 
-                      value="java:/seampayEntityManagerFactory"/>
+                      value="java:/ejbTimerEntityManagerFactory"/>
         </properties>
     </persistence-unit>
 </persistence>

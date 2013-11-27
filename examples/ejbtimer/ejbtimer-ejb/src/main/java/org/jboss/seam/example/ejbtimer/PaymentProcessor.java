@@ -79,5 +79,17 @@ public class PaymentProcessor
          }
       }
    }
+   
+   public void processPayment(Payment payment) {
+       if (payment.getActive()) {
+           payment.getAccount().adjustBalance(payment.getAmount().negate());
+           
+           payment.setLastPaid(new Date());
+           
+           if (payment.getPaymentFrequency().equals(Payment.Frequency.ONCE)) {
+               payment.setActive(false);
+           }
+       }
+   }   
 
 }

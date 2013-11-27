@@ -2,6 +2,7 @@ package org.jboss.seam.example.ejbtimer;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -9,18 +10,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
 import javax.validation.constraints.NotNull;
 
 @Entity
 public class Account
     implements Serializable
 {
-    @Id @GeneratedValue 
+
+	private static final long serialVersionUID = -7702134422514326240L;
+
+	@Id @GeneratedValue 
     private Long id;
 
     @NotNull
-    BigDecimal balance;
+    BigDecimal balance = BigDecimal.ZERO;
 
     @NotNull
     String accountNumber;
@@ -62,4 +65,13 @@ public class Account
     {
         return payments;
     }
+
+    public void addPayment(Payment payment) {
+        if (payments == null) {
+            payments = new ArrayList<Payment>();
+        }
+        
+        payments.add(payment);
+    }
+    
 }

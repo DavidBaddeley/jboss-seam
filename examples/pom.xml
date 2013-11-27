@@ -78,6 +78,7 @@
                 <module>contactlist</module>
                 <module>drools</module>
                 <module>dvdstore</module>
+                <module>ejbtimer</module>
                 <module>excel</module>
                 <module>groovybooking</module>
                 <module>guice</module>
@@ -126,6 +127,7 @@
                 <module>contactlist/contactlist-ftest</module>
                 <module>drools/drools-ftest</module>
                 <module>dvdstore/dvdstore-ftest</module>
+                <module>ejbtimer/ejbtimer-ftest</module>
                 <module>excel/excel-ftest</module>
                 <module>groovybooking/groovybooking-ftest</module>
                 <module>guice/guice-ftest</module>

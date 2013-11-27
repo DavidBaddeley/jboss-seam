@@ -30,7 +30,7 @@
         
     <persistence:managed-persistence-context name="entityManager"
                                       auto-create="true"
-                                      persistence-unit-jndi-name="java:/seampayEntityManagerFactory"/>
+                                      persistence-unit-jndi-name="java:/ejbTimerEntityManagerFactory"/>
 
     <core:init debug="true" jndi-pattern="${jndiPattern}" />
     
