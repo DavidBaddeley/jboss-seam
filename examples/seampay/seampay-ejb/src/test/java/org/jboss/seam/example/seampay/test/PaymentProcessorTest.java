@@ -2,18 +2,16 @@ package org.jboss.seam.example.seampay.test;
 
 import java.math.BigDecimal;
 import java.util.Date;
+
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.OverProtocol;
 import org.jboss.arquillian.junit.Arquillian;
-
 import org.jboss.seam.example.seampay.Account;
 import org.jboss.seam.example.seampay.Payment;
-import org.jboss.seam.example.seampay.PaymentProcessor;
 import org.jboss.seam.example.seampay.Payment.Frequency;
+import org.jboss.seam.example.seampay.PaymentProcessor;
 import org.jboss.seam.mock.JUnitSeamTest;
 import org.jboss.shrinkwrap.api.Archive;
-import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
-import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
