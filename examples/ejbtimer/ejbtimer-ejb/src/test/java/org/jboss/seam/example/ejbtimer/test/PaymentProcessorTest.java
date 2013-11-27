@@ -94,7 +94,7 @@ public class PaymentProcessorTest
         
         assert payment.getAccount().getBalance().equals(INITIAL_BALANCE);
         
-        processor.processPayment(payment);
+        processor.schedulePayment(payment.getPaymentDate(), payment.getPaymentFrequency().getInterval(), payment);
         
         assert payment.getAccount().getBalance().equals(new BigDecimal("900"));
         assert payment.getActive();
