@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <components xmlns="http://jboss.org/schema/seam/components"
+            xmlns:async="http://jboss.org/schema/seam/async"
             xmlns:pay="http://jboss.org/schema/seam/examples/ejbtimer"
             xmlns:core="http://jboss.org/schema/seam/core"
             xmlns:framework="http://jboss.org/schema/seam/framework"
@@ -10,8 +11,11 @@
                                       persistence-unit-jndi-name="java:/ejbTimerEntityManagerFactory"/>
 
     <core:init debug="true" jndi-pattern="${jndiPattern}" />
+
+    <async:timer-service-dispatcher/>
     
     <component class="org.jboss.seam.transaction.EjbSynchronizations" jndi-name="java:app/jboss-seam/EjbSynchronizations"/>
+    <component class="org.jboss.seam.async.TimerServiceDispatcher" jndi-name="java:app/jboss-seam/TimerServiceDispatcher"/>
     
     <pay:payment-home 
                        new-instance="#{newPayment}" 
@@ -36,4 +40,5 @@
                             order="accountNumber" 
                             max-results="20" 
                             entity-manager="#{entityManager}" />
+    
 </components>

@@ -22,6 +22,8 @@ public class PaymentProcessor {
     
     @In 
     EntityManager entityManager;
+    
+    @In Timer timer;
 
     @Logger Log log;
 
