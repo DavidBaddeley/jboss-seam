@@ -139,10 +139,7 @@
       <dependencySet>
          <outputDirectory>lib</outputDirectory>
          <includes>
-            <include>org.richfaces.core:richfaces-core-api</include>
-            <include>org.richfaces.core:richfaces-core-impl</include>
-            <include>org.richfaces.ui:richfaces-components-api</include>
-            <include>org.richfaces.ui:richfaces-components-ui</include>  
+            <include>org.richfaces:richfaces</include>
             <include>net.sourceforge.cssparser:cssparser</include>
             <include>org.w3c.css:sac</include>
             <include>com.google.guava:guava</include>

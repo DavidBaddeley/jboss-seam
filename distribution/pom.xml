@@ -246,22 +246,8 @@
        </dependency>                
                 
       <dependency>
-            <groupId>org.richfaces.core</groupId>
-            <artifactId>richfaces-core-impl</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.james</groupId>
-                    <artifactId>apache-mime4j</artifactId>                
-                </exclusion>
-            </exclusions>
+            <groupId>org.richfaces</groupId>
+            <artifactId>richfaces</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.richfaces.ui</groupId>
-            <artifactId>richfaces-components-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.richfaces.ui</groupId>
-            <artifactId>richfaces-components-ui</artifactId>
-        </dependency>     
 	</dependencies>
 </project>

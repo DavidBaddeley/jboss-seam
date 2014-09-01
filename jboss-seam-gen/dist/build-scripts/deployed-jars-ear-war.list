@@ -23,8 +23,7 @@ itext-rtf.jar
 jboss-seam-rss.jar
 yarfraw.jar
 jboss-seam-ui.jar
-richfaces-components-ui.jar
-richfaces-core-impl.jar
+richfaces.jar
 gwt-servlet.jar
 gwt-user.jar
 jboss-seam-remoting.jar
