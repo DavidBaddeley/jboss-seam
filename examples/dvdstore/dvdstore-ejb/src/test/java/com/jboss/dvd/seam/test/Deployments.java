@@ -1,6 +1,8 @@
 package com.jboss.dvd.seam.test;
 
 import com.jboss.dvd.seam.Order;
+
+import org.jboss.arquillian.container.test.api.OverProtocol;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
@@ -8,12 +10,12 @@ import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import java.io.File;
 
 public class Deployments {
+
+   @OverProtocol("Servlet 3.0")
    public static WebArchive dvdStoreDeployment() {
 
       File[] libs = Maven.resolver().loadPomFromFile("pom.xml")
-              .importCompileAndRuntimeDependencies()
-              // force resolve jboss-seam, because it is provided-scoped in the pom, but we need it bundled in the WAR
-              .resolve("org.jboss.seam:jboss-seam").withTransitivity().asFile();
+              .importCompileAndRuntimeDependencies().resolve().withTransitivity().asFile();
 
       return ShrinkWrap.create(WebArchive.class, "seam-dvdstore.war")
               .addPackage(Order.class.getPackage())
