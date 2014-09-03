@@ -141,10 +141,7 @@
     <classpathentry kind="lib" path="lib/resteasy-jaxb-provider.jar"/>
     <classpathentry kind="lib" path="lib/resteasy-jaxrs.jar"/>
     <classpathentry kind="lib" path="lib/resteasy-jettison-provider.jar"/>
-    <classpathentry kind="lib" path="lib/richfaces-components-api.jar"/>
-    <classpathentry kind="lib" path="lib/richfaces-components-ui.jar"/>
-    <classpathentry kind="lib" path="lib/richfaces-core-api.jar"/>
-    <classpathentry kind="lib" path="lib/richfaces-core-impl.jar"/>
+    <classpathentry kind="lib" path="lib/richfaces.jar"/>
     <classpathentry kind="lib" path="lib/saaj-api.jar"/>
     <classpathentry kind="lib" path="lib/sac.jar"/>
     <classpathentry kind="lib" path="lib/servlet-api.jar"/>
