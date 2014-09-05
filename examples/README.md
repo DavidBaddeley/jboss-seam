@@ -76,8 +76,7 @@ Detailed guide is at `http://docs.jboss.org/arquillian/reference/1.0.0.Alpha1/en
 
 The following steps describe executing of functional tests in general. Some examples are not covered with functional tests and thus don't contain the `${example.name}-ftest` folder.
 
-* Start JBoss AS 7
-* Set `JBOSS_HOME` environment property, respectively
+* Set `JBOSS_HOME` environment property to path where is your JBoss AS 7 server
 
 To run a functional test:
 
