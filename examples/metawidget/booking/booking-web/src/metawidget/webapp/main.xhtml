@@ -21,7 +21,7 @@
             <h:form id="searchCriteria">
                 <fieldset> 
                     <h:inputText id="searchString" value="#{hotelSearch.searchString}" style="width: 165px;">
-                        <a:ajax id="onkeyup" event="keyup" listener="#{hotelSearch.find}" render="searchResults" />
+                        <a:ajax event="keyup" listener="#{hotelSearch.find}" render="searchResults" />
                     </h:inputText>
                     &#160;
                     <h:commandButton id="findHotels" value="Find Hotels" action="#{hotelSearch.find}"/>
