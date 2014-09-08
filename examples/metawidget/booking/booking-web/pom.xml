@@ -17,6 +17,7 @@
         <!-- filtering property for components.xml -->
         <jndiPattern>java:app/booking-ejb/#{ejbName}</jndiPattern>
         <distributable>false</distributable>
+        <version.org.metawidget>3.9</version.org.metawidget>
     </properties>
     
     <dependencies>
@@ -57,13 +58,13 @@
         <dependency>
             <groupId>org.richfaces</groupId>
             <artifactId>richfaces</artifactId>
-        </dependency>  
+        </dependency>
         
         <!-- metawidget -->
         <dependency>
             <groupId>org.metawidget.modules.faces</groupId>
             <artifactId>metawidget-faces</artifactId>
-            <version>2.4</version>
+            <version>${version.org.metawidget}</version>
             <exclusions>
                <exclusion>
                   <groupId>org.metawidget.modules</groupId>
@@ -74,7 +75,7 @@
         <dependency>
             <groupId>org.metawidget.modules.faces</groupId>
             <artifactId>metawidget-richfaces</artifactId>
-            <version>2.4</version>
+            <version>${version.org.metawidget}</version>
            <exclusions>
               <exclusion>
                  <groupId>org.metawidget.modules</groupId>
@@ -85,7 +86,7 @@
         <dependency>
             <groupId>org.metawidget.modules</groupId>
             <artifactId>metawidget-jpa</artifactId>
-            <version>2.4</version>
+            <version>${version.org.metawidget}</version>
            <exclusions>
               <exclusion>
                  <groupId>org.metawidget.modules</groupId>
@@ -96,7 +97,7 @@
         <dependency>
             <groupId>org.metawidget.modules</groupId>
             <artifactId>metawidget-beanvalidation</artifactId>
-            <version>2.4</version>
+            <version>${version.org.metawidget}</version>
            <exclusions>
               <exclusion>
                  <groupId>org.metawidget.modules</groupId>

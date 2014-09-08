@@ -95,12 +95,12 @@
         <dependency>
             <groupId>org.metawidget.modules</groupId>
             <artifactId>metawidget-annotation</artifactId>
-            <version>2.4</version>
+            <version>3.9</version>
         </dependency>
         <dependency>
             <groupId>org.metawidget.modules.faces</groupId>
             <artifactId>metawidget-facesannotation</artifactId>
-            <version>2.4</version>
+            <version>3.9</version>
         </dependency>
     </dependencies>
 
