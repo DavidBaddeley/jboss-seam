@@ -48,7 +48,7 @@
         <version.seam>2.3.2-SNAPSHOT</version.seam>
 		<version.jbossas7>7.2.0.Final</version.jbossas7>
 		<version.emma>2.0.5312</version.emma>
-		<version.richfaces.cdk>4.5.0.Alpha2</version.richfaces.cdk>
+		<version.richfaces.cdk>4.5.0.CR2</version.richfaces.cdk>
 
 		<!-- ***************** -->
 		<!-- Repository Deployment URLs -->
